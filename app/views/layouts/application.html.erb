@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html class='has-navbar-fixed-top'>
+  <head>
+    <title>Buzón CIMAV</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/"><strong>Buzón CIMAV / <%= current_user.name %></strong></a>
+      </div>
+      <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-success" href="/logout">
+            <strong>Salir</strong>
+          </a>
+        </div>
+      </div>
+      </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </body>
+</html>

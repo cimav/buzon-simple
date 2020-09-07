@@ -1,0 +1,5 @@
+<h1>Mi nueva queja</h1>
+<%= form_with model: @entry do |f| %>
+  <%= f.text_area :message, class: 'input' %>
+  <%= f.submit "Enviar", class: 'button' %>
+<% end %>

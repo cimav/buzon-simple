@@ -1,0 +1,24 @@
+<div class="level">
+  <div class="level-left">
+    <% if current_user.is_admin %>
+      <h1>Quejas</h1>
+    <% else %>
+      <h1>Mis quejas</h1>
+    <% end %>
+  </div>
+  <div class="level-right">
+  	<a href="<%= new_entry_url %>" class="button is-link">Nueva queja</a>
+  </div>
+</div>
+<% if @entries.count == 0 %>
+  <div class="empty">
+    No tienes quejas, <a href="<%= new_entry_url %>">¿Deseas agregar una nueva?</a>
+  </div>
+<% end %>
+<% @entries.each do |entry| %>
+  <div class="entry">
+    <h2><%= entry.identificator %></h2>
+    <span class="extra"><%= entry.user.name %> - <%= l entry.created_at.to_datetime, format: "%Y-%m-%d %H:%M" rescue '--' %></span>
+    <p><%= entry.message %></p>
+  </div>
+<% end %>
